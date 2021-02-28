@@ -12,8 +12,11 @@ namespace Core.Aspects.Autofac.Validation
     public class ValidationAspect : MethodInterception
     {
         private Type _validatorType;
+
         public ValidationAspect(Type validatorType)
         {
+
+            //defesive coding
             if (!typeof(IValidator).IsAssignableFrom(validatorType))
             {
                 throw new System.Exception("Bu Bir Doğrulama sınıfı değil");
